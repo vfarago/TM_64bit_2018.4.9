@@ -67,6 +67,9 @@ public class PermissionController : MonoBehaviour
         yield return new WaitUntil(() => Check(permissionList[2]));
 
         SceneManager.LoadScene("SPlash");
+#elif UNITY_EDITOR
+        SceneManager.LoadScene("SPlash");
+        yield return null; 
 #endif
     }
 

@@ -106,7 +106,7 @@ public class TSGestureHandler : MonoBehaviour
         {
             prefabLoader.TargetOffMoving(gameObject);
             canvasManager.OnTargetOffObject(true);
-            mTrackableBehaviour.OnTrackerUpdate(TrackableBehaviour.Status.NOT_FOUND);
+            //mTrackableBehaviour.OnTrackerUpdate(TrackableBehaviour.Status.NOT_FOUND);
         }
 
         yield return new WaitForSeconds(0.05f);
@@ -120,7 +120,7 @@ public class TSGestureHandler : MonoBehaviour
         {
             prefabLoader.TargetOffMoving(gameObject);
             canvasManager.OnTargetOffObject(true);
-            mTrackableBehaviour.OnTrackerUpdate(TrackableBehaviour.Status.NOT_FOUND);
+            //mTrackableBehaviour.OnTrackerUpdate(TrackableBehaviour.Status.NOT_FOUND);
         }
 
         yield return new WaitForSeconds(0.05f);

@@ -34,7 +34,7 @@ public class AnimalDataSetLoader : MonoBehaviour
 
     void Awake()
     {
-        VuforiaAbstractConfiguration.Instance.Vuforia.DelayedInitialization = false;
+        //VuforiaAbstractConfiguration.Instance.Vuforia.DelayedInitialization = false;
         arCam.GetComponent<VuforiaBehaviour>().enabled = true;
         VuforiaRuntime.Instance.InitVuforia();
 
