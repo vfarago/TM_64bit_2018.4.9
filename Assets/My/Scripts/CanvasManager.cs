@@ -109,7 +109,10 @@ public class CanvasManager : MonoBehaviour
         });
 
         arPanel.GetComponentInChildren<Button>().onClick.AddListener(() => OnTargetOffObject(false));
-        swapCamButton.GetComponent<Button>().onClick.AddListener(() => SwapCamera());
+
+        //Kevin0628
+        //swapCamButton.GetComponent<Button>().onClick.AddListener(() => SwapCamera());
+
         replayButton.GetComponent<Button>().onClick.AddListener(() => ReplayPhonics());
 
         Button[] recordToastButton = recordToastPanel.GetComponentsInChildren<Button>();
@@ -173,7 +176,10 @@ public class CanvasManager : MonoBehaviour
 
         arPanel.transform.GetChild(3).gameObject.SetActive(true);
         arPanel.GetComponentInChildren<Button>().onClick.RemoveListener(() => OnTargetOffObject(false));
-        swapCamButton.GetComponent<Button>().onClick.RemoveListener(() => SwapCamera());
+
+        //Kevin0628
+        //swapCamButton.GetComponent<Button>().onClick.RemoveListener(() => SwapCamera());
+
         replayButton.GetComponent<Button>().onClick.RemoveListener(() => ReplayPhonics());
 
         Button[] recordToastButton = recordToastPanel.GetComponentsInChildren<Button>();
@@ -338,15 +344,16 @@ public class CanvasManager : MonoBehaviour
         phonics.PlayPhonics();
     }
 
+    //Kevin0628
     //Front Camera - Back Camera Swap Method
-    private void SwapCamera()
-    {
-        arManager.UseFrontCamera(!isFrontCam);
-        if (prefabLoader.isTargetoff)
-            prefabLoader.ModelChangePos();
+    //private void SwapCamera()
+    //{
+    //    arManager.UseFrontCamera(!isFrontCam);
+    //    if (prefabLoader.isTargetoff)
+    //        prefabLoader.ModelChangePos();
 
-        isFrontCam = !isFrontCam;
-    }
+    //    isFrontCam = !isFrontCam;
+    //}
 
     //RecordToast PopUpPanel
     private void RecordToastController(Button btn)
@@ -761,10 +768,12 @@ public class CanvasManager : MonoBehaviour
             OnSingleTarget(isSingleTarget);
             PushedButtonReset();
 
-            if (isFrontCam)
-            {
-                arManager.UseFrontCamera(isFrontCam);
-            }
+            //Kevin0628
+            //if (isFrontCam)
+            //{
+            //    arManager.UseFrontCamera(isFrontCam);
+            //}
+
             isPhonics = false;
 
             FreeContentNotice();

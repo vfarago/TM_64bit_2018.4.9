@@ -189,9 +189,10 @@ public class DynamicTrackableEventHandler : TrackableEventHandler
         Vector3 startScaling = new Vector3(0.01f, 0.01f, 0.01f);
         Vector3 newScaling = new Vector3(initialScale, initialScale, initialScale);
 
+        //Kevin0628
         //Object Reflect
-        if (arManager.isFrontCamera)
-            newScaling = new Vector3(initialScale, initialScale, initialScale * -1f);
+        //if (arManager.isFrontCamera)
+        //    newScaling = new Vector3(initialScale, initialScale, initialScale * -1f);
 
         //lerping
         float elapsedTime = 0;

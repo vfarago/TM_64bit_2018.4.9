@@ -153,10 +153,11 @@ public class PrefabLoader : MonoBehaviour
         Vector3 startScaling = m3dModel.transform.localScale;
         Vector3 newScaling = new Vector3(initialScale, initialScale, initialScale);
 
+        //Kevin0628
         //Object Reflect
-        if (arManager.isFrontCamera)
-            newScaling = new Vector3(initialScale, initialScale, initialScale * -1f);
-        
+        //if (arManager.isFrontCamera)
+        //    newScaling = new Vector3(initialScale, initialScale, initialScale * -1f);
+
         //lerping
         float elapsedTime = 0;
         while (elapsedTime < time)
@@ -180,14 +181,18 @@ public class PrefabLoader : MonoBehaviour
     //카메라 전/후 전환에 따라 오브젝트 180도 회전
     private Vector3 RotValue()
     {
-        if (arManager.isFrontCamera)
-        {
-            m3dModelRot = new Vector3(180, backRotY, 0);
-        }
-        else
-        {
-            m3dModelRot = new Vector3(0, backRotY, 0);
-        }
+
+        //Kevin0628
+        //if (arManager.isFrontCamera)
+        //{
+        //    m3dModelRot = new Vector3(180, backRotY, 0);
+        //}
+        //else
+        //{
+        //    m3dModelRot = new Vector3(0, backRotY, 0);
+        //}
+
+        m3dModelRot = new Vector3(0, backRotY, 0);
         return m3dModelRot;
     }
 

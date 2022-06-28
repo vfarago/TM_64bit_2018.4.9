@@ -12,7 +12,8 @@ public class ARManager : MonoBehaviour
     public Camera arCam;
     public Camera StudyViewCamera;
 
-    public bool isFrontCamera;
+    //Kevin0628
+    //public bool isFrontCamera;
     public HintState hintState = HintState.ZERO;
 
     public static ARManager Instance
@@ -32,7 +33,10 @@ public class ARManager : MonoBehaviour
         //ARCamera.enabled = true;
         StudyViewCamera.enabled = false;
         state = State.IDLE;
-        isFrontCamera = false;
+
+        //Kevin0628
+        //isFrontCamera = false;
+
         //TurnOnAR(false, false);
         setHintZero();
     }
@@ -146,62 +150,66 @@ public class ARManager : MonoBehaviour
     }
 
 
+    //Kevin0628
     //https://developer.vuforia.com/forum/faq/unity-how-select-camera-and-mirroring
-    public void UseFrontCamera(bool ready)
-    {
+    //public void UseFrontCamera(bool ready)
+    //{
 
-        if (ready) //Front Camera = true
-        {
-            isFrontCamera = true;
+    //    if (ready) //Front Camera = true
+    //    {
+    //        isFrontCamera = true;
 
-            // turn off the curent camera : the back camera
-            Vuforia.CameraDevice.Instance.Stop();
-            Vuforia.CameraDevice.Instance.Deinit();
+    //        // turn off the curent camera : the back camera
+    //        Vuforia.CameraDevice.Instance.Stop();
+    //        Vuforia.CameraDevice.Instance.Deinit();
 
-            // turn on the front camera
-            Vuforia.CameraDevice.Instance.Init(Vuforia.CameraDevice.CameraDirection.CAMERA_FRONT);
-            Vuforia.CameraDevice.Instance.Start();
+    //        // turn on the front camera
+    //        Vuforia.CameraDevice.Instance.Init(Vuforia.CameraDevice.CameraDirection.CAMERA_FRONT);
+    //        Vuforia.CameraDevice.Instance.Start();
 
-            //turn on the mirroring
-            Vuforia.VuforiaRenderer.VideoBGCfgData config = Vuforia.VuforiaRenderer.Instance.GetVideoBackgroundConfig();
-            config.reflection = Vuforia.VuforiaRenderer.VideoBackgroundReflection.ON;
-            Vuforia.VuforiaRenderer.Instance.SetVideoBackgroundConfig(config);
+    //        //turn on the mirroring
+    //        Vuforia.VuforiaRenderer.VideoBGCfgData config = Vuforia.VuforiaRenderer.Instance.GetVideoBackgroundConfig();
+    //        config.reflection = Vuforia.VuforiaRenderer.VideoBackgroundReflection.ON;
+    //        Vuforia.VuforiaRenderer.Instance.SetVideoBackgroundConfig(config);
 
-            //Debug.Log("UseFrontCamera");
-            return;
-        }
-        else //Back Camera = false
-        {
-            isFrontCamera = false;
+    //        //Debug.Log("UseFrontCamera");
+    //        return;
+    //    }
+    //    else //Back Camera = false
+    //    {
+    //        isFrontCamera = false;
 
-            // turn off the curent camera : the front camera
-            Vuforia.CameraDevice.Instance.Stop();
-            Vuforia.CameraDevice.Instance.Deinit();
+    //        // turn off the curent camera : the front camera
+    //        Vuforia.CameraDevice.Instance.Stop();
+    //        Vuforia.CameraDevice.Instance.Deinit();
 
-            // turn on the back camera
-            Vuforia.CameraDevice.Instance.Init(Vuforia.CameraDevice.CameraDirection.CAMERA_BACK);
-            Vuforia.CameraDevice.Instance.Start();
+    //        // turn on the back camera
+    //        Vuforia.CameraDevice.Instance.Init(Vuforia.CameraDevice.CameraDirection.CAMERA_BACK);
+    //        Vuforia.CameraDevice.Instance.Start();
 
-            //turn off the mirroring
-            Vuforia.VuforiaRenderer.VideoBGCfgData config = Vuforia.VuforiaRenderer.Instance.GetVideoBackgroundConfig();
-            config.reflection = Vuforia.VuforiaRenderer.VideoBackgroundReflection.OFF;
-            Vuforia.VuforiaRenderer.Instance.SetVideoBackgroundConfig(config);
+    //        //turn off the mirroring
+    //        Vuforia.VuforiaRenderer.VideoBGCfgData config = Vuforia.VuforiaRenderer.Instance.GetVideoBackgroundConfig();
+    //        config.reflection = Vuforia.VuforiaRenderer.VideoBackgroundReflection.OFF;
+    //        Vuforia.VuforiaRenderer.Instance.SetVideoBackgroundConfig(config);
 
-            //Debug.Log("UseBackCamera");
-            return;
-        }
-    }
+    //        //Debug.Log("UseBackCamera");
+    //        return;
+    //    }
+    //}
 
     public void TurnOnAR(bool use, bool isStop)
     {
         if (use)
         {
             ActivateDataSet(isStop);
+
+            //Kevin 0628
             // turn on the front camera
-            if (isFrontCamera)
-                Vuforia.CameraDevice.Instance.Init(Vuforia.CameraDevice.CameraDirection.CAMERA_FRONT);
-            else
-                Vuforia.CameraDevice.Instance.Init(Vuforia.CameraDevice.CameraDirection.CAMERA_BACK);
+            //if (isFrontCamera)
+            //    Vuforia.CameraDevice.Instance.Init(Vuforia.CameraDevice.CameraDirection.CAMERA_FRONT);
+            //else
+            //    Vuforia.CameraDevice.Instance.Init(Vuforia.CameraDevice.CameraDirection.CAMERA_BACK);
+
             Vuforia.CameraDevice.Instance.Start();
         }
         else
